@@ -1,0 +1,4 @@
+click
+load-dotenv
+plexapi
+terminaltables
