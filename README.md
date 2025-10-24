@@ -21,6 +21,56 @@ This repository provides tools to automate common tasks with Plex. Most notably,
 
 ---
 
+## Script: `plex_get.py`
+
+**`plex_get.py`** is a command-line tool to interact with your Plex Media Server and view your libraries and their contents in the terminal.
+
+### Features
+
+- List all media libraries available on your Plex server, with their name, type, and number of items.
+- Show all items (movies, shows, etc) within a specific library, by library name or key.
+- Output displayed in an easy-to-read ASCII table.
+- Useful for quickly browsing library inventory from the command line.
+
+### Usage
+
+Make sure you have completed the **Setup** section below (dependencies, `.env` file, etc.).
+
+**List all Plex libraries:**
+```bash
+python plex_get.py libraries
+```
+
+**List all items in a library by name:**
+```bash
+python plex_get.py items --library-name "Movies"
+```
+
+**List all items in a library by key (ID):**
+```bash
+python plex_get.py items --library-key 1
+```
+
+You must specify either a library name or key, not both. For a list of available libraries and their keys, run the first command above.
+
+### Example output
+
+```
++-----------------------------+
+|        Plex Libraries       |
++------+--------+------+------+
+| Key  | Title | Type | Total|
++------+--------+------+------+
+|  1   | Movies|movie | 123  |
+...
+```
+
+### Requirements
+
+This script uses the same dependencies and configuration as `plex_export.py`. Your `.env` file must include `PLEX_URL` and `PLEX_TOKEN` as described in the Setup below.
+
+---
+
 ## Setup
 
 1. **Clone the repository** (if you haven't already):
